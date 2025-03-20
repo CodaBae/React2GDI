@@ -1,4 +1,3 @@
-import Navber from "../components/Navber";
 import Product1 from '../assets/product1.png'
 import Product2 from '../assets/product2.png'
 import Product3 from '../assets/product3.png'
@@ -7,7 +6,6 @@ import ProductCard from "../components/ProductCard";
 function Landing() {
   return (
     <div>
-      <Navber />
 
       <div id="heading">
         <h1>FABLE OF KLASSIK</h1>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function ProductCard({ProductImg, ProductName, ProductPrice}) {
   return (
     <div id="product_card">
@@ -5,7 +7,7 @@ function ProductCard({ProductImg, ProductName, ProductPrice}) {
         <img id="product_img" src={ProductImg}/>
       </div>
       <div>
-        <h3 id="product_name">{ProductName}</h3>
+        <Link to={'/view'}><h3 id="product_name">{ProductName}</h3></Link>
         <h3 id="product_price">€{ProductPrice}</h3>
       </div>
     </div>

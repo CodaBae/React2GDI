@@ -1,6 +1,7 @@
-import Navber from "../components/Navber";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import CartItem from "../components/CartItem";
+import SummaryCont from "../components/SummaryCont";
 
 function CartPage() {
 
@@ -24,7 +25,6 @@ function CartPage() {
 
   return (
     <div>
-      <Navber />
       <div id='cart_cont'>
         <div id='cart_form'>
             <form>
@@ -44,6 +44,14 @@ function CartPage() {
 
         </div>
         <div id="cart_product_view">
+            <div>
+                <CartItem />
+                <CartItem />
+                <CartItem />
+
+            </div>
+
+            <SummaryCont />
           
         </div>
       </div>

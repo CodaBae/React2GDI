@@ -66,24 +66,85 @@ h1 h4 {
 #input_cont {
   display: flex;
   flex-direction: column;
+  width: 100%;
+
 }
 
-
-#cart_cont{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 5%;
+#cart_cont {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5%;
 }
 
-#cart_form{
-    width: 40%;
+#cart_form {
+  width: 40%;
 }
 
-#cart_product_view{
-    width: 45%;
+#cart_product_view {
+  width: 45%;
 }
 
+#cart_cont div form {
+  width: 100%;
+}
 
-#cart_cont div form{
+#cart_item_cont {
+  display: flex;
+  justify-content: left;
+}
+
+#cart_img {
+  width: 30%;
+}
+
+#cart_desc {
+  width: 70%;
+}
+
+#cart_desc div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#summary_cont {
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+#summary_cont #first {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#first div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#summary_cont .second {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#order_info{
+    width: 30%;
+    background: gainsboro;
+    margin: 5% 0%;
+}
+
+#order_info img{
     width: 100%;
+}
+
+#order_info div{
+    display: flex;
+    justify-content: space-between;
+    margin: 2%;
+}
+
+#order_page_cont{
+    padding: 2%;
 }

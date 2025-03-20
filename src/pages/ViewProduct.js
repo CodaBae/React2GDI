@@ -1,6 +1,5 @@
 import Product1 from "../assets/product1.png";
 import Button from "../components/Button";
-import Navber from "../components/Navber";
 
 function ViewProduct() {
   let btnStyle = {
@@ -13,7 +12,7 @@ function ViewProduct() {
   };
   return (
     <div>
-      <Navber />
+
       <div id="view_product_cont">
         <div id="product_img_view">
           <img src={Product1} />
@@ -24,7 +23,7 @@ function ViewProduct() {
             <h3> Product Price</h3>
           </div>
 
-          <Button buttonName={"Add to Cart"} buttonStyle={btnStyle} />
+          <Button buttonName={"Add to Cart"} buttonStyle={btnStyle} linkTo={'cart'}/>
 
           <div>
             <h5>Product Info</h5>

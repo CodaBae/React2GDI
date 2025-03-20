@@ -1,18 +1,19 @@
 import Logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
-function Navber(a, b) {
+function Navber() {
   return (
     <nav>
       <div>
-        <img src={Logo} />
+      <Link to={'/'}><img src={Logo} /></Link>
       </div>
       <div>
-        <p>Collections</p>
-        <p>Customizer</p>
+        <Link to={'/'}><p>Collections</p></Link>
+        <Link to={'/cart'}><p>Cart</p> </Link>
         <p>Sale</p>
       </div>
       <div>
-        <p>Items</p>
+        <Link to={'/order'}><p>Orders</p></Link>
       </div>
     </nav>
   );
