@@ -7,7 +7,7 @@ function Landing() {
 
   const dispatch = useDispatch()
 
-  const {item:products, status, error} = useSelector((state)=> state.products)
+  const {items:products, status, error} = useSelector((state)=> state.products)
 
   useEffect(() =>{
     dispatch(fetchProductsAsync)
