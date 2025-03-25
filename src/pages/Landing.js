@@ -1,20 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
-import { UseDispatch, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsAsync } from "../features/productsSlice";
 
 function Landing() {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
+  const {
+    items: products,
+    status,
+    error,
+  } = useSelector((state) => {
+    return state.products;
+  });
 
-  const {items:products, status, error} = useSelector((state)=> state.products)
+  const [loading, setLoading] = useState(status);
 
-  useEffect(() =>{
-    dispatch(fetchProductsAsync)
+  useEffect(() => {
+    dispatch(fetchProductsAsync());
+  }, [dispatch]);
 
-  })
-
-  console.log(products, status, error )
+  if (status === "loading") return <div>loading</div>;
 
   return (
     <div>
@@ -24,17 +30,17 @@ function Landing() {
       </div>
 
       <div id="product_cont">
-        {/* {
-          products.map((item, index) => {
-            return (
-              <ProductCard
-                ProductImg={item.img}
-                ProductName={item.name}
-                ProductPrice={item.price}
-              />
-            );
-          })
-        } */}
+        {products.map((item, index) => {
+          return (
+            <ProductCard
+              ProductImg={item.image}
+              ProductName={item.name}
+              ProductPrice={item.amount}
+              ProductDesc={item.description}
+              ProductId={item._id}
+            />
+          );
+        })}
       </div>
     </div>
   );

@@ -18,18 +18,22 @@ const productSlice = createSlice({
         status: 'idle',
         error: null
     },
-    reducers: {},
+    reducers: {
+
+    },
     extraReducers: (builder) => {
 
         builder
             .addCase(fetchProductsAsync.pending, (state) =>{
                 state.status = 'loading'
             })
-            .addCase(fetchProductsAsync.fulfilled, (state) =>{
+            .addCase(fetchProductsAsync.fulfilled, (state, action) =>{
                 state.status = 'succeeded'
+                state.items = action.payload
             })
             .addCase(fetchProductsAsync.rejected, (state) =>{
                 state.status = 'failed'
+                state.error = 'something went wrong'
             })
 
     }
