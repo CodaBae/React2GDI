@@ -9,5 +9,11 @@ const getProduct =  async () => {
 }
 
 
+const getProductByID =  async (id) => {
+    let result =  await axios.get(`${API_URL}/products/${id}`)
+     return result.data
+ }
+ 
 
-export  default getProduct
+
+export {getProduct,getProductByID}

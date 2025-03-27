@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-import getProduct from "../api/productApi";
+import {getProduct} from "../api/productApi";
+import { getProductByID } from "../api/productApi";
 
 export const fetchProductsAsync = createAsyncThunk(
     'products/getProduct',
@@ -10,6 +11,16 @@ export const fetchProductsAsync = createAsyncThunk(
     }
 
 )
+
+export const fetchProductsByIDAsync = createAsyncThunk(
+    'products/getProduct/id',
+    async (payload) => {
+        // const {id} = payload
+        const response = await getProductByID(payload)
+        return response
+    }
+)
+
 
 const productSlice = createSlice({
     name: 'products',
@@ -32,6 +43,17 @@ const productSlice = createSlice({
                 state.items = action.payload
             })
             .addCase(fetchProductsAsync.rejected, (state) =>{
+                state.status = 'failed'
+                state.error = 'something went wrong'
+            })
+            .addCase(fetchProductsByIDAsync.pending, (state) =>{
+                state.status = 'loading'
+            })
+            .addCase(fetchProductsByIDAsync.fulfilled, (state, action) =>{
+                state.status = 'succeeded'
+                state.items = action.payload
+            })
+            .addCase(fetchProductsByIDAsync.rejected, (state) =>{
                 state.status = 'failed'
                 state.error = 'something went wrong'
             })

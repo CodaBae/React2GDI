@@ -1,27 +1,28 @@
 import Product1 from '../assets/product1.png'
 
-function CartItem() {
+function CartItem({item}) {
+
   return (
     <div id='cart_item_cont'>
       <div id='cart_img'>
-        <img src={Product1} />
+        <img src={item.product.image} />
       </div>
       <div id='cart_desc'>
-        <h3>Name Product</h3>
-        <p>Collections: Collections Name</p>
-        <p>Article: HO57833</p>
+        <h3>{item.product.name}</h3>
+        <p>Collections: {item.product.name}</p>
+        <p>Article: {item.product._id}</p>
 
         <div>
           <p>Size: M</p>
           <p>Color: Black</p>
           <p>
             Quantity:
-            <span>-</span> 1 <span> + </span>
+            <span>-</span>{item.quantity}<span> + </span>
           </p>
         </div>
 
         <div>
-            <p> Price: $150</p>
+            <p> Price: ${item.product.amount}</p>
             <p>Delete</p>
         </div>
       </div>

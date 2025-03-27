@@ -30,7 +30,7 @@ function Landing() {
       </div>
 
       <div id="product_cont">
-        {products.map((item, index) => {
+        {products.length > 0 ? products.map((item, index) => {
           return (
             <ProductCard
               ProductImg={item.image}
@@ -38,9 +38,11 @@ function Landing() {
               ProductPrice={item.amount}
               ProductDesc={item.description}
               ProductId={item._id}
+
+              key={index} 
             />
           );
-        })}
+        }): 'no data'}
       </div>
     </div>
   );
